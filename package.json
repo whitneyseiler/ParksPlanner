@@ -21,11 +21,12 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "materialize-css": "^1.0.0-beta",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react": "^16.4.2",
+    "react-dom": "16.0.0-alpha.12",
     "react-materialize": "^2.4.5",
     "react-responsive-masonry": "^2.0.0",
     "react-waypoint": "^8.0.3",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "svg-react-loader": "^0.4.5"
   }
 }
