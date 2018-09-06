@@ -50,28 +50,12 @@ class App extends React.Component {
   //   });
   // }
 
-  /**
-   * when user enters search query and hits enter, reset offset to 0 
-   * and fetch associated GIFs
-   */
-  handleKeyDown(e){
-    let value = e.target.value.split(' ').join('+');
-
-    if(e.keyCode == 13){
-      e.preventDefault();
-      this.setState({
-        route: value,
-        offset: 0
-      });
-      this.fetchGIFs(value)
-    }
-  }
 
   render () {
     return (
       <main className="main">
         <header>
-          <h1 className="brand-logo center" onClick={() => window.location.reload()}>Park Planner</h1>
+          <h1 className="brand-logo center" onClick={() => window.location.reload()}>Parks Planner<h4>“I haven’t been everywhere, but it’s on my list.” - Susan Sontag</h4></h1>
           <nav>
             <Search handleKeyDown={this.handleKeyDown}/>
           </nav>

@@ -29,3 +29,4 @@ A live demo of this app under construction can be found [here]('https://whitneys
 - [ ] make list view sortable by visited status
 - [ ] create OAuth to store different users' National Park visit records
 - [ ] in list view, make park names link to their official NPS.gov site
+- [ ] allow user to search for specific park
