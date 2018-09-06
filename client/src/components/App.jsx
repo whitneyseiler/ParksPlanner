@@ -23,8 +23,6 @@ class App extends React.Component {
     let info = e.target.getAttribute('data-info');
     infoBox.style.display = "block";
     infoBox.innerHTML = info;
-
-    e.target.style.viewBox = "0 0 100 100"
   }
   
   handleMouseLeave(e) {
@@ -34,7 +32,7 @@ class App extends React.Component {
 
   handleMouseMove(e) {
     let infoBox = document.getElementById('info-box');
-    let top = e.clientY - (infoBox.clientHeight + 200);
+    let top = e.clientY - (infoBox.clientHeight + 250);
     let left = e.clientX - (infoBox.clientWidth / 2);
 
     infoBox.style.top = `${top}px`;
