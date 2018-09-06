@@ -1,47 +1,32 @@
-input[type=text],
-input[type=email],
-input[type=number],
-textarea,
-fieldset {
-  -webkit-appearance: none;
-  
-  width : 100%;
-  border: 1px solid #333;
-  margin: 0;
-  
-  font-family: inherit;
-  font-size: 90%;
-  
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-input:invalid {
-    border: 2px dashed red;
-}
-  
-input:valid {
-    border: 2px solid black;
+nav {
+    display: none;
 }
 
 h1 {
     text-align: center;
+    color: #ee6e74;
+    font-size: 6.2rem;
+    margin: 2.1rem;
 }
 
-#us-map{
+header {
+}
+
+#us-map {
     display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position: relative;
+    padding-left: 30px;
+    padding-right: 30px;
+    /* padding-top: 10px; */
     width: 100%;
     height: 100%;
 }
 
 path:hover, circle:hover {
-    stroke: #002868 !important;
+    stroke: #ee6e73 !important;
     stroke-width:2px;
     stroke-linejoin: round;
-    fill: #002868 !important;
+    fill: #ee6e73 !important;
     cursor: pointer;
 }
 
@@ -58,7 +43,7 @@ path:hover, circle:hover {
     left: 0px;
     z-index: 1;
     background-color: #ffffff;
-    border: 2px solid #BF0A30;
+    border: 2px solid grey;
     border-radius: 5px;
     padding: 5px;
     font-family: arial;

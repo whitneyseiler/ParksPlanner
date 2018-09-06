@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'Axios';
 import Search from './Search.jsx';
 import Map from './Map.jsx';
 
@@ -16,42 +15,29 @@ class App extends React.Component {
 
   }
 
-  /*
-  * retrieve top 20 trending GIFs upon component mount
-  */
   componentDidMount() {
     
   }
 
   handleMouseEnter(e) {
-    e.target.style.fill = "purple"
-    
     let infoBox = document.getElementById('info-box');
     let info = e.target.getAttribute('data-info');
     infoBox.style.display = "block";
-
     infoBox.innerHTML = info;
   }
   
   handleMouseLeave(e) {
     let infoBox = document.getElementById('info-box');
     infoBox.style.display = "none";
-    e.target.style.fill = "";
   }
 
   handleMouseMove(e) {
     let infoBox = document.getElementById('info-box');
-    let top = e.clientY - 80;
-    let left = e.clientX;
+    let top = e.clientY - 250;
+    let left = e.clientX - 30;
 
-    infoBox.style.position = "absolute";
     infoBox.style.top = `${top}px`;
     infoBox.style.left = `${left}px`;
-    infoBox.style.backgroundColor = '#ffffff';
-    infoBox.style.border = '2px solid #ee6e73';
-    infoBox.style.borderRadius = '5px';
-    infoBox.style.padding = '5px';
-    infoBox.style.fontFamily = 'Raleway, sans-serif';
   }
   
   // var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;

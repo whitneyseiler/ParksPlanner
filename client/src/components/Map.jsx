@@ -3,7 +3,7 @@ import React from 'react';
 let Map = ({handleMouseEnter, handleMouseLeave, handleMouseMove, currentStateInfo}) => {
 
     return (
-			<div >
+			<div id="us-map">
         <div id="info-box">{currentStateInfo}</div>
         <svg xmlnsCc="http://creativecommons.org/ns#" xmlnsDc="http://purl.org/dc/elements/1.1/" xmlnsRdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlnsInkscape="http://www.inkscape.org/namespaces/inkscape" xmlnsSodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlnsSvg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" id="us-map" preserveAspectRatio="xMinYMin meet" sodipodiDocname="Republican_Party_presidential_primaries_results,_2016.svg" inkscapeVersion="0.91 r13725" x="0px" y="0px" width="959px" height="593px" viewBox="174 100 959 593" enableBackground="new 174 100 959 593" xmlSpace="preserve">
         <sodipodiNamedview bordercolor="#666666" objecttolerance="10" pagecolor="#ffffff" borderopacity="1" gridtolerance="10" guidetolerance="10" inkscapeCx="509.19152" inkscapeCy="282.2353" inkscapeZoom="1.2137643" showgrid="false" id="namedview71" inkscapeCurrent-layer="g5" inkscapeWindow-maximized="1" inkscapeWindow-y="-8" inkscapeWindow-x="-8" inkscapePageopacity="0" inkscapeWindow-height="1017" inkscapeWindow-width="1920" inkscapePageshadow="2"></sodipodiNamedview>
