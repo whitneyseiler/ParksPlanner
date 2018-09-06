@@ -33,7 +33,7 @@ class App extends React.Component {
   handleMouseMove(e) {
     let infoBox = document.getElementById('info-box');
     let top = e.clientY - (infoBox.clientHeight + 250);
-    let left = e.clientX - (infoBox.clientWidth / 2);
+    let left = e.clientX - (infoBox.clientHeight);
 
     infoBox.style.top = `${top}px`;
     infoBox.style.left = `${left}px`;
