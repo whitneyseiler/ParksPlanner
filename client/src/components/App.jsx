@@ -23,6 +23,8 @@ class App extends React.Component {
     let info = e.target.getAttribute('data-info');
     infoBox.style.display = "block";
     infoBox.innerHTML = info;
+
+    e.target.style.viewBox = "0 0 100 100"
   }
   
   handleMouseLeave(e) {
