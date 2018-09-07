@@ -1,5 +1,5 @@
-@import url(//fonts.googleapis.com/icon?family=Material+Icons);
-@import url(//fonts.googleapis.com/css?family=Lobster|Raleway|Roboto|Pacifico|Oswald);
+@import url('//fonts.googleapis.com/icon?family=Material+Icons');
+@import url('//fonts.googleapis.com/css?family=Lobster|Raleway|Roboto|Pacifico|Oswald');
 
 nav, .material-icons {
     max-height: 40px;
@@ -34,12 +34,19 @@ h4 {
     padding: 10px;
 }
 
-path:hover, circle:hover {
+.state-svg:hover {
     stroke: #ee6e73 !important;
     stroke-width:2px;
     stroke-linejoin: round;
     fill: #ee6e73 !important;
     cursor: pointer;
+    z-index: 4;
+    transform: scale(1.2);
+}
+.state-svg {
+    transition: all 1s;
+    transform-origin: 50% 50%;
+    z-index: 1;
 }
 
 #path67 {
