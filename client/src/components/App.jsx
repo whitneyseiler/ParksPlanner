@@ -1,5 +1,6 @@
 import React from 'react';
 import Search from './Search.jsx';
+import Key from './Key.jsx';
 import Map from './Map.jsx';
 
 class App extends React.Component {
@@ -84,18 +85,24 @@ class App extends React.Component {
   }
 
   handleMouseMove(e) {
-    // let infoBox = document.getElementById('info-box');
-    // let top = e.clientY - (infoBox.clientHeight + 250);
-    // let left = e.clientX - (infoBox.clientHeight) - 70;
+    let infoBox = document.getElementById('info-box');
+    let top = e.clientY - (infoBox.clientHeight + 250);
+    let left = e.clientX - (infoBox.clientHeight) - 70;
 
-    // infoBox.style.top = `${top}px`;
-    // infoBox.style.left = `${left}px`;
+    infoBox.style.top = `${top}px`;
+    infoBox.style.left = `${left}px`;
     // e.target.viewBox = "0 0 150 150";
     // e.target.height = "200px";
     // e.target.width = "200px";
     // e.target.style.zIndex = "1";
   }
   
+  handleClick(e) {
+    console.log(e.target)
+    let clicked = document.getElementById(e.target.id);
+    e.target.classList.toggle('clicked')
+  }
+
   // var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
   // if (ios) {
   //   $('a').on('click touchend', function() {
@@ -110,13 +117,15 @@ class App extends React.Component {
     return (
       <main className="main">
         <header>
-          <h1 className="brand-logo center" onClick={() => window.location.reload()}>Parks Planner<h4>“I haven’t been everywhere, but it’s on my list.” - Susan Sontag</h4></h1>
+          <h1 className="brand-logo center" onClick={() => window.location.reload()}>Parks Planner</h1>
+          <h4>“I haven’t been everywhere, but it’s on my list.” - Susan Sontag</h4>
           <nav>
             <Search handleKeyDown={this.handleKeyDown}/>
           </nav>
         </header>
-        <section >
-          <Map states={this.state.stateData} handleMouseEnter={this.handleMouseEnter} handleMouseLeave={this.handleMouseLeave} handleMouseMove={this.handleMouseMove}/>
+        <section id="main">
+          <Key />
+          <Map states={this.state.stateData} handleMouseEnter={this.handleMouseEnter} handleMouseLeave={this.handleMouseLeave} handleMouseMove={this.handleMouseMove} handleClick={this.handleClick} />
         </section>
       </main>
     )
