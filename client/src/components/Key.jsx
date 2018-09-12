@@ -4,7 +4,7 @@ import {Row, Input, Button} from 'react-materialize'
 let Key = () => {
     return (
 			<div id="map-key">
-        <h4>KEY</h4>
+        <h4 id="key">KEY</h4>
         <div className="key-item">
           <div id="grey-state" className="key-color"></div><h4 className="key-item-name">UNEXPLORED</h4>
         </div>

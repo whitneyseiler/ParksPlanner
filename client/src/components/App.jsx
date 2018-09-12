@@ -91,10 +91,6 @@ class App extends React.Component {
 
     infoBox.style.top = `${top}px`;
     infoBox.style.left = `${left}px`;
-    // e.target.viewBox = "0 0 150 150";
-    // e.target.height = "200px";
-    // e.target.width = "200px";
-    // e.target.style.zIndex = "1";
   }
   
   handleClick(e) {
@@ -102,16 +98,6 @@ class App extends React.Component {
     let clicked = document.getElementById(e.target.id);
     e.target.classList.toggle('clicked')
   }
-
-  // var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  // if (ios) {
-  //   $('a').on('click touchend', function() {
-  //     var link = $(this).attr('href');
-  //     window.open(link,'_blank');
-  //     return false;
-  //   });
-  // }
-
 
   render () {
     return (
