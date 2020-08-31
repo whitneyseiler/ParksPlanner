@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/parksplanner/static/js/main.cf63947d.chunk.js",
-    "main.js.map": "/parksplanner/static/js/main.cf63947d.chunk.js.map",
-    "runtime-main.js": "/parksplanner/static/js/runtime-main.0ed8afb8.js",
-    "runtime-main.js.map": "/parksplanner/static/js/runtime-main.0ed8afb8.js.map",
-    "static/js/2.1f59a8ad.chunk.js": "/parksplanner/static/js/2.1f59a8ad.chunk.js",
-    "static/js/2.1f59a8ad.chunk.js.map": "/parksplanner/static/js/2.1f59a8ad.chunk.js.map",
-    "index.html": "/parksplanner/index.html",
-    "precache-manifest.2d34616048cdeed584480927c604420b.js": "/parksplanner/precache-manifest.2d34616048cdeed584480927c604420b.js",
-    "service-worker.js": "/parksplanner/service-worker.js",
-    "static/js/2.1f59a8ad.chunk.js.LICENSE.txt": "/parksplanner/static/js/2.1f59a8ad.chunk.js.LICENSE.txt"
+    "main.js": "/ParksPlanner/static/js/main.cf63947d.chunk.js",
+    "main.js.map": "/ParksPlanner/static/js/main.cf63947d.chunk.js.map",
+    "runtime-main.js": "/ParksPlanner/static/js/runtime-main.12951a27.js",
+    "runtime-main.js.map": "/ParksPlanner/static/js/runtime-main.12951a27.js.map",
+    "static/js/2.1f59a8ad.chunk.js": "/ParksPlanner/static/js/2.1f59a8ad.chunk.js",
+    "static/js/2.1f59a8ad.chunk.js.map": "/ParksPlanner/static/js/2.1f59a8ad.chunk.js.map",
+    "index.html": "/ParksPlanner/index.html",
+    "precache-manifest.e6df7186efe0ca9c173692bc12360e9f.js": "/ParksPlanner/precache-manifest.e6df7186efe0ca9c173692bc12360e9f.js",
+    "service-worker.js": "/ParksPlanner/service-worker.js",
+    "static/js/2.1f59a8ad.chunk.js.LICENSE.txt": "/ParksPlanner/static/js/2.1f59a8ad.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.0ed8afb8.js",
+    "static/js/runtime-main.12951a27.js",
     "static/js/2.1f59a8ad.chunk.js",
     "static/js/main.cf63947d.chunk.js"
   ]
