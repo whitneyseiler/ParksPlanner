@@ -1,32 +1,36 @@
 {
-  "name": "giphy-gallery",
+  "name": "parks-planner",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "react-dev": "webpack -d --watch",
-    "server": "nodemon server/index.js"
+    "start": "react-scripts start"
   },
   "author": "Whitney Seiler",
   "license": "ISC",
-  "devDependencies": {
-    "babel-core": "^6.23.1",
-    "babel-loader": "^6.3.2",
-    "babel-preset-es2015": "^6.22.0",
-    "babel-preset-react": "^6.23.0",
-    "webpack": "^2.2.1"
-  },
   "dependencies": {
-    "axios": "^0.18.0",
-    "cors": "^2.8.4",
-    "express": "^4.16.3",
+    "mapbox-gl": "^1.3.1",
     "materialize-css": "^1.0.0-beta",
-    "react": "^16.4.2",
-    "react-dom": "16.0.0-alpha.12",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-map-gl": "^5.2.7",
+    "react-mapbox-gl": "^4.8.6",
     "react-materialize": "^2.4.5",
     "react-responsive-masonry": "^2.0.0",
+    "react-scripts": "^3.1.2",
     "react-waypoint": "^8.0.3",
-    "request": "^2.88.0",
     "svg-react-loader": "^0.4.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
