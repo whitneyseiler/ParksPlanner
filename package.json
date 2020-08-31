@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://whitneyseiler.github.io/parksplanner",
   "scripts": {
-    "start": "react-scripts start"
+    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "Whitney Seiler",
   "license": "ISC",
   "dependencies": {
+    "gh-pages": "^3.1.0",
     "mapbox-gl": "^1.3.1",
     "materialize-css": "^1.0.0-beta",
     "react": "^16.9.0",
