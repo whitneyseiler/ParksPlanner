@@ -6,11 +6,10 @@
     background: white;
 }
 
-#menu {
-    left: 50%;
-    background: #fff;
-    padding: 10px;
-    font-family: 'Open Sans', sans-serif;
+label {
+    color: black;
+    padding-right: 10px;
+    padding-left: 5px;
 }
 
 .mapContainer {

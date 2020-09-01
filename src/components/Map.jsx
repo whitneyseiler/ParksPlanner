@@ -33,7 +33,7 @@ class Map extends React.Component {
 
     var map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/outdoors-v11',
+      style: 'mapbox://styles/whitneyseiler/ckejl2wga0fif19pfp7ri2jwl',
       center: [
         -100.486052, 37.830348
       ],
@@ -82,16 +82,17 @@ class Map extends React.Component {
         'data': "https://opendata.arcgis.com/datasets/c8d60ffcbf5c4030a17762fe10e81c6a_0.geojson",
       });
 
-      map.addLayer({
-        id: 'boundaries',
-        type: 'fill',
-        source: 'parks-boundaries',
-        paint: {
-          'fill-color': '#527E5B',
-          'fill-opacity': 0.6
-        },
-        filter: ['==', '$type', 'Polygon']
-      });
+      // TODO: remove layer in favor of new map style built-in boundaries
+      // map.addLayer({
+      //   id: 'boundaries',
+      //   type: 'fill',
+      //   source: 'parks-boundaries',
+      //   paint: {
+      //     'fill-color': '#527E5B',
+      //     'fill-opacity': 0.4
+      //   },
+      //   filter: ['==', '$type', 'Polygon']
+      // });
 
       map.addLayer({
         id: 'markers',
