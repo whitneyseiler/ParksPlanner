@@ -47,7 +47,18 @@ class Map extends React.Component {
         map.addImage('custom-marker', image);
       });
 
+      // Add navigation controll to map
       map.addControl(new mapboxgl.NavigationControl());
+
+      // Add geolocate control to the map.
+      map.addControl(
+        new mapboxgl.GeolocateControl({
+          positionOptions: {
+            enableHighAccuracy: true
+          },
+          trackUserLocation: true
+        })
+      );
 
       map.addSource('parks-boundaries', {
         type: 'geojson',
@@ -125,7 +136,7 @@ class Map extends React.Component {
           .addTo(map);
       });
 
-    // Change the cursor to a pointer when the mouse is over the places layer.
+     // Change the cursor to a pointer when the mouse is over the places layer.
       map.on('mouseenter', 'markers', function() {
         map.getCanvas().style.cursor = 'pointer';
       });
@@ -165,6 +176,7 @@ class Map extends React.Component {
     })
   }
 
+  // Gets list of unique features (name) from parks data
   getUniqueFeatures(array, comparatorProperty) {
     var existingFeatureKeys = {};
     // Because features come from tiled vector data, feature geometries may be split
@@ -182,6 +194,7 @@ class Map extends React.Component {
     return uniqueFeatures;
   }
 
+  // Renders list of park names in left sidebar
   renderListings(features) {
     var filterEl = document.getElementById('feature-filter');
     var listingEl = document.getElementById('feature-listing');

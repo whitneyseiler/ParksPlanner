@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js install react-mapbox-gl
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js run deplpy
 
 PATH: 
   /Users/wseile/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/wseile/bin
@@ -19,19 +19,26 @@ npm manifest:
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "homepage": "https://whitneyseiler.github.io/parksplanner",
     "scripts": {
-      "start": "react-scripts start"
+      "build": "react-scripts build",
+      "start": "react-scripts start",
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d build"
     },
     "author": "Whitney Seiler",
     "license": "ISC",
     "dependencies": {
+      "gh-pages": "^3.1.0",
       "mapbox-gl": "^1.3.1",
       "materialize-css": "^1.0.0-beta",
       "react": "^16.9.0",
       "react-dom": "^16.9.0",
-      "react-scripts": "^3.1.2",
+      "react-map-gl": "^5.2.7",
+      "react-mapbox-gl": "^4.8.6",
       "react-materialize": "^2.4.5",
       "react-responsive-masonry": "^2.0.0",
+      "react-scripts": "^3.1.2",
       "react-waypoint": "^8.0.3",
       "svg-react-loader": "^0.4.5"
     },
@@ -1301,6 +1308,13 @@ Lockfile:
     version "3.1.0"
     resolved "https://registry.yarnpkg.com/@mapbox/whoots-js/-/whoots-js-3.1.0.tgz#497c67a1cef50d1a2459ba60f315e448d2ad87fe"
   
+  "@math.gl/web-mercator@^3.1.3":
+    version "3.2.2"
+    resolved "https://registry.yarnpkg.com/@math.gl/web-mercator/-/web-mercator-3.2.2.tgz#93e66ded7f3004b92bc931da3e32ef244189679b"
+    dependencies:
+      "@babel/runtime" "^7.0.0"
+      gl-matrix "^3.0.0"
+  
   "@mrmlnc/readdir-enhanced@^2.2.1":
     version "2.2.1"
     resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -1401,6 +1415,20 @@ Lockfile:
       "@svgr/plugin-svgo" "^4.3.1"
       loader-utils "^1.2.3"
   
+  "@turf/bbox@4.7.3":
+    version "4.7.3"
+    resolved "https://registry.yarnpkg.com/@turf/bbox/-/bbox-4.7.3.tgz#e3ad4f10a7e9b41b522880d33083198199059067"
+    dependencies:
+      "@turf/meta" "^4.7.3"
+  
+  "@turf/helpers@4.7.3":
+    version "4.7.3"
+    resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-4.7.3.tgz#bc312ac43cab3c532a483151c4c382c5649429e9"
+  
+  "@turf/meta@^4.7.3":
+    version "4.7.4"
+    resolved "https://registry.yarnpkg.com/@turf/meta/-/meta-4.7.4.tgz#6de2f1e9890b8f64b669e4b47c09b20893063977"
+  
   "@types/babel__core@^7.1.0":
     version "7.1.9"
     resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.9.tgz#77e59d438522a6fb898fa43dc3455c6e72f3963d"
@@ -1437,6 +1465,10 @@ Lockfile:
   "@types/eslint-visitor-keys@^1.0.0":
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/@types/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
+  
+  "@types/geojson@*":
+    version "7946.0.7"
+    resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-7946.0.7.tgz#c8fa532b60a0042219cdf173ca21a975ef0666ad"
   
   "@types/glob@^7.1.1":
     version "7.1.3"
@@ -1485,6 +1517,12 @@ Lockfile:
   "@types/stack-utils@^1.0.1":
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
+  
+  "@types/supercluster@^5.0.1":
+    version "5.0.2"
+    resolved "https://registry.yarnpkg.com/@types/supercluster/-/supercluster-5.0.2.tgz#6d01faed39b5381a1c696f8133a26418a68abde4"
+    dependencies:
+      "@types/geojson" "*"
   
   "@types/yargs-parser@*":
     version "15.0.0"
@@ -1950,7 +1988,7 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
   
-  async@^2.6.2:
+  async@^2.6.1, async@^2.6.2:
     version "2.6.3"
     resolved "https://registry.yarnpkg.com/async/-/async-2.6.3.tgz#d72625e2344a3656e3a3ad4fa749fa83299d82ff"
     dependencies:
@@ -2699,7 +2737,7 @@ Lockfile:
     dependencies:
       delayed-stream "~1.0.0"
   
-  commander@^2.11.0, commander@^2.20.0:
+  commander@^2.11.0, commander@^2.18.0, commander@^2.20.0:
     version "2.20.3"
     resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   
@@ -3185,6 +3223,10 @@ Lockfile:
     version "0.2.0"
     resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
   
+  deep-equal@1.0.1:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.0.1.tgz#f5d260292b660e084eff4cdbc9f08ad3247448b5"
+  
   deep-equal@^1.0.1:
     version "1.1.1"
     resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.1.1.tgz#b5c98c942ceffaf7cb051e24e1434a25a2e6076a"
@@ -3448,6 +3490,10 @@ Lockfile:
       inherits "^2.0.1"
       minimalistic-assert "^1.0.0"
       minimalistic-crypto-utils "^1.0.0"
+  
+  email-addresses@^3.0.1:
+    version "3.1.0"
+    resolved "https://registry.yarnpkg.com/email-addresses/-/email-addresses-3.1.0.tgz#cabf7e085cbdb63008a70319a74e6136188812fb"
   
   emoji-regex@^7.0.1, emoji-regex@^7.0.2:
     version "7.0.3"
@@ -4013,6 +4059,25 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
   
+  filename-reserved-regex@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/filename-reserved-regex/-/filename-reserved-regex-1.0.0.tgz#e61cf805f0de1c984567d0386dc5df50ee5af7e4"
+  
+  filenamify-url@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/filenamify-url/-/filenamify-url-1.0.0.tgz#b32bd81319ef5863b73078bed50f46a4f7975f50"
+    dependencies:
+      filenamify "^1.0.0"
+      humanize-url "^1.0.0"
+  
+  filenamify@^1.0.0:
+    version "1.2.1"
+    resolved "https://registry.yarnpkg.com/filenamify/-/filenamify-1.2.1.tgz#a9f2ffd11c503bed300015029272378f1f1365a5"
+    dependencies:
+      filename-reserved-regex "^1.0.0"
+      strip-outer "^1.0.0"
+      trim-repeated "^1.0.0"
+  
   filesize@6.0.1:
     version "6.0.1"
     resolved "https://registry.yarnpkg.com/filesize/-/filesize-6.0.1.tgz#f850b509909c7c86f7e450ea19006c31c2ed3d2f"
@@ -4279,7 +4344,19 @@ Lockfile:
     dependencies:
       assert-plus "^1.0.0"
   
-  gl-matrix@^3.2.1:
+  gh-pages@^3.1.0:
+    version "3.1.0"
+    resolved "https://registry.yarnpkg.com/gh-pages/-/gh-pages-3.1.0.tgz#ec3ed0f6a6e3fc3d888758fa018f08191c96bd55"
+    dependencies:
+      async "^2.6.1"
+      commander "^2.18.0"
+      email-addresses "^3.0.1"
+      filenamify-url "^1.0.0"
+      find-cache-dir "^3.3.1"
+      fs-extra "^8.1.0"
+      globby "^6.1.0"
+  
+  gl-matrix@^3.0.0, gl-matrix@^3.2.1:
     version "3.3.0"
     resolved "https://registry.yarnpkg.com/gl-matrix/-/gl-matrix-3.3.0.tgz#232eef60b1c8b30a28cbbe75b2caf6c48fd6358b"
   
@@ -4375,6 +4452,10 @@ Lockfile:
     dependencies:
       duplexer "^0.1.1"
       pify "^4.0.1"
+  
+  hammerjs@^2.0.8:
+    version "2.0.8"
+    resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
   
   handle-thing@^2.0.0:
     version "2.0.1"
@@ -4615,6 +4696,13 @@ Lockfile:
   https-browserify@^1.0.0:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
+  
+  humanize-url@^1.0.0:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/humanize-url/-/humanize-url-1.0.1.tgz#f4ab99e0d288174ca4e1e50407c55fbae464efff"
+    dependencies:
+      normalize-url "^1.0.0"
+      strip-url-auth "^1.0.0"
   
   iconv-lite@0.4.24, iconv-lite@^0.4.24:
     version "0.4.24"
@@ -5868,7 +5956,7 @@ Lockfile:
     dependencies:
       object-visit "^1.0.0"
   
-  mapbox-gl@^1.3.1:
+  mapbox-gl@^1.0.0, mapbox-gl@^1.3.1:
     version "1.12.0"
     resolved "https://registry.yarnpkg.com/mapbox-gl/-/mapbox-gl-1.12.0.tgz#7d1c73b1153d7ee219d30d80728d7df079bc7c05"
     dependencies:
@@ -6089,6 +6177,13 @@ Lockfile:
       for-in "^0.1.3"
       is-extendable "^0.1.1"
   
+  mjolnir.js@^2.4.0:
+    version "2.4.1"
+    resolved "https://registry.yarnpkg.com/mjolnir.js/-/mjolnir.js-2.4.1.tgz#63cc66b7d1a52490904103cc1becc597be60c6cf"
+    dependencies:
+      "@babel/runtime" "^7.0.0"
+      hammerjs "^2.0.8"
+  
   mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@^0.5.5, mkdirp@~0.5.1:
     version "0.5.5"
     resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.5.tgz#d91cefd62d1436ca0f41620e251288d420099def"
@@ -6261,7 +6356,7 @@ Lockfile:
     version "0.1.2"
     resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
   
-  normalize-url@1.9.1:
+  normalize-url@1.9.1, normalize-url@^1.0.0:
     version "1.9.1"
     resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-1.9.1.tgz#2cc0d66b31ea23036458436e3620d85954c66c3c"
     dependencies:
@@ -7620,6 +7715,27 @@ Lockfile:
     version "16.13.1"
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   
+  react-map-gl@^5.2.7:
+    version "5.2.7"
+    resolved "https://registry.yarnpkg.com/react-map-gl/-/react-map-gl-5.2.7.tgz#a3d6eda15ee8abb87b9acd855a0f6996cc364188"
+    dependencies:
+      "@babel/runtime" "^7.0.0"
+      mapbox-gl "^1.0.0"
+      mjolnir.js "^2.4.0"
+      prop-types "^15.7.2"
+      react-virtualized-auto-sizer "^1.0.2"
+      viewport-mercator-project "^6.2.3 || ^7.0.1"
+  
+  react-mapbox-gl@^4.8.6:
+    version "4.8.6"
+    resolved "https://registry.yarnpkg.com/react-mapbox-gl/-/react-mapbox-gl-4.8.6.tgz#c3841bac882a297f60efce50cac4060e3a1c3f81"
+    dependencies:
+      "@turf/bbox" "4.7.3"
+      "@turf/helpers" "4.7.3"
+      "@types/supercluster" "^5.0.1"
+      deep-equal "1.0.1"
+      supercluster "^7.0.0"
+  
   react-materialize@^2.4.5:
     version "2.6.0"
     resolved "https://registry.yarnpkg.com/react-materialize/-/react-materialize-2.6.0.tgz#656c511599c547a879c9f97e87727b5376fdfaf2"
@@ -7690,6 +7806,10 @@ Lockfile:
       workbox-webpack-plugin "4.3.1"
     optionalDependencies:
       fsevents "2.1.2"
+  
+  react-virtualized-auto-sizer@^1.0.2:
+    version "1.0.2"
+    resolved "https://registry.yarnpkg.com/react-virtualized-auto-sizer/-/react-virtualized-auto-sizer-1.0.2.tgz#a61dd4f756458bbf63bd895a92379f9b70f803bd"
   
   react-waypoint@^8.0.3:
     version "8.1.0"
@@ -8671,6 +8791,16 @@ Lockfile:
     version "3.1.1"
     resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
   
+  strip-outer@^1.0.0:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/strip-outer/-/strip-outer-1.0.1.tgz#b2fd2abf6604b9d1e6013057195df836b8a9d631"
+    dependencies:
+      escape-string-regexp "^1.0.2"
+  
+  strip-url-auth@^1.0.0:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/strip-url-auth/-/strip-url-auth-1.0.1.tgz#22b0fa3a41385b33be3f331551bbb837fa0cd7ae"
+  
   style-loader@0.23.1:
     version "0.23.1"
     resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.23.1.tgz#cb9154606f3e771ab6c4ab637026a1049174d925"
@@ -8686,7 +8816,7 @@ Lockfile:
       postcss "^7.0.0"
       postcss-selector-parser "^3.0.0"
   
-  supercluster@^7.1.0:
+  supercluster@^7.0.0, supercluster@^7.1.0:
     version "7.1.0"
     resolved "https://registry.yarnpkg.com/supercluster/-/supercluster-7.1.0.tgz#f0a457426ec0ab95d69c5f03b51e049774b94479"
     dependencies:
@@ -8912,6 +9042,12 @@ Lockfile:
   traverse@0.6.6:
     version "0.6.6"
     resolved "https://registry.yarnpkg.com/traverse/-/traverse-0.6.6.tgz#cbdf560fd7b9af632502fed40f918c157ea97137"
+  
+  trim-repeated@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/trim-repeated/-/trim-repeated-1.0.0.tgz#e3646a2ea4e891312bf7eace6cfb05380bc01c21"
+    dependencies:
+      escape-string-regexp "^1.0.2"
   
   ts-pnp@1.1.6:
     version "1.1.6"
@@ -9155,6 +9291,12 @@ Lockfile:
       assert-plus "^1.0.0"
       core-util-is "1.0.2"
       extsprintf "^1.2.0"
+  
+  "viewport-mercator-project@^6.2.3 || ^7.0.1":
+    version "7.0.1"
+    resolved "https://registry.yarnpkg.com/viewport-mercator-project/-/viewport-mercator-project-7.0.1.tgz#9d7248072f2cbb122f93b63d2b346a5763b8d79a"
+    dependencies:
+      "@math.gl/web-mercator" "^3.1.3"
   
   vm-browserify@^1.0.1:
     version "1.1.2"
@@ -9620,9 +9762,14 @@ Lockfile:
       yargs-parser "^13.1.2"
 
 Trace: 
-  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add react-mapbox-gl" instead.
+  Error: Command "deplpy" not found. Did you mean "deploy"?
       at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
-      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:21987:13)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87307:17
       at Generator.next (<anonymous>)
       at step (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:98:30)
-      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:109:13
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:116:14
+      at new Promise (<anonymous>)
+      at new F (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:23451:28)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:95:12
+      at runCommand (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87312:22)
+      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87412:14)

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://whitneyseiler.github.io/parksplanner",
+  "homepage": "https://whitneyseiler.github.io/ParksPlanner/",
   "scripts": {
     "build": "react-scripts build",
     "start": "react-scripts start",
