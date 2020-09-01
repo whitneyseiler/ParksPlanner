@@ -47,8 +47,7 @@ class Map extends React.Component {
         map.addImage('custom-marker', image);
       });
 
-      var nav = new mapboxgl.NavigationControl();
-      map.addControl(nav, 'top-right');
+      map.addControl(new mapboxgl.NavigationControl());
 
       map.addSource('parks-boundaries', {
         type: 'geojson',
