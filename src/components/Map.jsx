@@ -110,33 +110,32 @@ class Map extends React.Component {
       // When a click event occurs on a feature in the markers layer, open a
       // popup at the location of the feature, with description HTML from its
       // properties.
-      map.on('click', 'markers', (e) => {
-        const { visited } = this.state;
-        const featureId = e.features[0].UNIT_CODE;
+      map.on('click', 'markers', function(e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var name = e.features[0].properties.UNIT_NAME;
+        var code = e.features[0].properties.UNIT_CODE;
 
-        if (e.features.length > 0) {
-          if (visited.includes(featureId)) {
-            visited.splice(visited.indexOf(featureId), 1);
-            this.setState({ visited });
-          } else {
-            visited.push(featureId)
-            this.setState({ visited });
-          }
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
+
+        new mapboxgl.Popup()
+          .setLngLat(coordinates)
+          .setHTML(`<a href="http://nps.gov/${code}">${name}</a>`)
+          .addTo(map);
       });
 
-      map.on('mousemove', 'markers', (e) => {
+    // Change the cursor to a pointer when the mouse is over the places layer.
+      map.on('mouseenter', 'markers', function() {
         map.getCanvas().style.cursor = 'pointer';
-          
-        var feature = e.features[0];
-        popup.setLngLat(feature.geometry.coordinates).setText(
-          feature.properties.UNIT_NAME
-        ).addTo(map);
       });
-
-      map.on('mouseleave', 'markers', (e) => {
+      
+      // Change it back to a pointer when it leaves.
+      map.on('mouseleave', 'markers', function() {
         map.getCanvas().style.cursor = '';
-        popup.remove();
       });
 
       filterEl.addEventListener('keyup', (e) => {
@@ -199,8 +198,10 @@ class Map extends React.Component {
       features.forEach(feature => {
         var prop = feature.properties;
         if (prop.UNIT_TYPE === 'National Park') {
-          var item = document.createElement('span');
+          var item = document.createElement('a');
+          item.href = `http://nps.gov/${prop.UNIT_CODE}`;
           item.textContent = prop.UNIT_NAME;
+          item.target = "_blank";
           item.addEventListener('mouseover', () => {
             // Highlight corresponding feature on the map
             popup
