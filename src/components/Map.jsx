@@ -4,7 +4,7 @@ import mapboxgl from 'mapbox-gl';
 mapboxgl.accessToken = 'pk.eyJ1Ijoid2hpdG5leXNlaWxlciIsImEiOiJjamxxNWo4cXkyY2RzM3dzNnljdGkzNDB2In0.wR0jz' +
     '3YiwL-UHC7OtUSMHQ';
 
-class Mapp extends React.Component {
+class Map extends React.Component {
   constructor(props) {
     super(props);
 
@@ -46,6 +46,9 @@ class Mapp extends React.Component {
         if (err) throw err;
         map.addImage('custom-marker', image);
       });
+
+      var nav = new mapboxgl.NavigationControl();
+      map.addControl(nav, 'top-right');
 
       map.addSource('parks-boundaries', {
         type: 'geojson',
@@ -242,4 +245,4 @@ class Mapp extends React.Component {
   }
 }
 
-export default Mapp;
+export default Map;
