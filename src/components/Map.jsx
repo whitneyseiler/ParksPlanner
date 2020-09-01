@@ -68,10 +68,7 @@ class Map extends React.Component {
           'fill-color': '#527E5B',
           'fill-opacity': 0.6
         },
-        filter: [ "all", 
-          ['==', '$type', 'Polygon'],
-          [ '==', 'feature.properties.UNIT_TYPE', 'National Park' ]
-        ]
+        filter: ['==', '$type', 'Polygon']
       });
 
       map.addLayer({
@@ -197,20 +194,18 @@ class Map extends React.Component {
     if (features.length) {
       features.forEach(feature => {
         var prop = feature.properties;
-        if (prop.UNIT_TYPE === 'National Park') {
-          var item = document.createElement('a');
-          item.href = `http://nps.gov/${prop.UNIT_CODE}`;
-          item.textContent = prop.UNIT_NAME;
-          item.target = "_blank";
-          item.addEventListener('mouseover', () => {
-            // Highlight corresponding feature on the map
-            popup
-              .setLngLat(feature.geometry.coordinates)
-              .setText(feature.properties.UNIT_NAME )
-              .addTo(this.map);
-          });
-          listingEl.appendChild(item);
-        }
+        var item = document.createElement('a');
+        item.href = `http://nps.gov/${prop.UNIT_CODE}`;
+        item.textContent = prop.UNIT_NAME;
+        item.target = "_blank";
+        item.addEventListener('mouseover', () => {
+          // Highlight corresponding feature on the map
+          popup
+            .setLngLat(feature.geometry.coordinates)
+            .setText(feature.properties.UNIT_NAME )
+            .addTo(this.map);
+        });
+        listingEl.appendChild(item);
       });
 
       // Show the filter input
