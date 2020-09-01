@@ -33,7 +33,7 @@ class Map extends React.Component {
 
     var map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/light-v10',
+      style: 'mapbox://styles/mapbox/outdoors-v11',
       center: [
         -100.486052, 37.830348
       ],
@@ -59,6 +59,17 @@ class Map extends React.Component {
           trackUserLocation: true
         })
       );
+
+      map.addSource('dem', {
+        'type': 'raster-dem',
+        'url': 'mapbox://mapbox.terrain-rgb'
+      });
+
+      map.addLayer({
+        'id': 'hillshading',
+        'source': 'dem',
+        'type': 'hillshade'
+      });
 
       map.addSource('parks-boundaries', {
         type: 'geojson',

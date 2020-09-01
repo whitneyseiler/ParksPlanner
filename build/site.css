@@ -6,6 +6,13 @@
     background: white;
 }
 
+#menu {
+    left: 50%;
+    background: #fff;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
 .mapContainer {
     float: left;
     width: 100%;
