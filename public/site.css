@@ -13,6 +13,7 @@ label {
 }
 
 .mapContainer {
+    position: fixed;
     float: left;
     width: 100%;
 }
@@ -25,10 +26,15 @@ label {
 }
 
 .map-overlay {
-    position: fixed;
+    position: absolute;
     width: 25%;
+    top: 0;
+    bottom: 0;
+    left: 0;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     background-color: #fff;
+    max-height: 100%;
+    overflow: hidden;
 }
     
 .map-overlay fieldset {
