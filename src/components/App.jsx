@@ -27,11 +27,8 @@ class App extends React.Component {
 
   renderMap() {
     const context = this;
-    // Holds visible airport features for filtering
     var features = [];
-    var popup = new mapboxgl.Popup({closeButton: false});
     var filterEl = document.getElementById('feature-filter');
-    var listingEl = document.getElementById('feature-listing');
 
     var map = new mapboxgl.Map({
       container: 'map',
@@ -84,17 +81,16 @@ class App extends React.Component {
         'data': "https://opendata.arcgis.com/datasets/c8d60ffcbf5c4030a17762fe10e81c6a_0.geojson",
       });
 
-      // TODO: remove layer in favor of new map style built-in boundaries
-      // map.addLayer({
-      //   id: 'boundaries',
-      //   type: 'fill',
-      //   source: 'parks-boundaries',
-      //   paint: {
-      //     'fill-color': '#527E5B',
-      //     'fill-opacity': 0.4
-      //   },
-      //   filter: ['==', '$type', 'Polygon']
-      // });
+      map.addLayer({
+        id: 'boundaries',
+        type: 'fill',
+        source: 'parks-boundaries',
+        paint: {
+          'fill-color': '#527E5B',
+          'fill-opacity': 0.4
+        },
+        filter: ['==', '$type', 'Polygon']
+      });
 
       map.addLayer({
         id: 'markers',
@@ -252,6 +248,12 @@ class App extends React.Component {
     }
   }
 
+  handleClearSearch() {
+    const search = document.getElementById('feature-filter');
+    search.value = '';
+    this.renderMap();
+  }
+
   render() {
     return (
       <main className="main">
@@ -259,7 +261,7 @@ class App extends React.Component {
           <h1 className="brand-logo center" onClick={() => window.location.reload()}>Parks Planner</h1>
           <h4>“I haven’t been everywhere, but it’s on my list.” - Susan Sontag</h4>
           <nav>
-            <Search clearSearch={() => this.renderMap(this)}/>
+            <Search clearSearch={() => this.handleClearSearch(this)}/>
           </nav>
         </header>
         <Map/>

@@ -1,18 +1,38 @@
 @import url('//fonts.googleapis.com/icon?family=Material+Icons');
 @import url('//fonts.googleapis.com/css?family=Lobster|Raleway|Roboto|Pacifico|Oswald');
 
+h1 {
+    text-align: center;
+    color:  #527E5B;
+    font-size: 5.2rem;
+    margin: 1.1rem;
+    font-family: 'Pacifico', cursive;
+}
+
+h4 {
+    color: rgb(63, 62, 62);
+    font-style: italic;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
 .header {
     width: 100%;
     background: white;
 }
 
-label {
-    color: black;
-    padding-right: 10px;
-    padding-left: 5px;
+nav, .material-icons, .input-field, #feature-filter {
+    max-height: 40px;
+    height: 40px !important;
+    line-height: 40px !important;
+    height: 40px;
+    background-color: #CFA02F;
 }
 
 .mapContainer {
+    position: fixed;
     float: left;
     width: 100%;
 }
@@ -24,11 +44,20 @@ label {
     width: 75%;
 }
 
+#feature-filter {
+    z-index: 10;
+}
+
 .map-overlay {
-    position: fixed;
+    position: absolute;
     width: 25%;
+    top: 0;
+    bottom: 0;
+    left: 0;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     background-color: #fff;
+    max-height: 100%;
+    overflow: hidden;
 }
     
 .map-overlay fieldset {
@@ -72,31 +101,6 @@ label {
     
 .map-overlay .listing a:hover {
     background: #f0f0f0;
-}
-
-nav, .material-icons {
-    max-height: 40px;
-    height: 40px !important;
-    line-height: 40px !important;
-    height: 40px;
-    background-color: #CFA02F
-}
-
-h1 {
-    text-align: center;
-    color:  #527E5B;
-    font-size: 5.2rem;
-    margin: 1.1rem;
-    font-family: 'Pacifico', cursive;
-}
-
-h4 {
-    color: rgb(63, 62, 62);
-    font-style: italic;
-    text-align: center;
-    font-family: 'Oswald', sans-serif;
-    margin-bottom: 10px;
-    font-size: 20px;
 }
 
 /* #us-map {
@@ -152,7 +156,7 @@ h4 {
     width: 150px;
 }
 /*  */
-#key-title {
+/* #key-title {
     font-size: 16px;
 }
 
@@ -183,7 +187,7 @@ h4 {
 .key-color {
     padding: 5px;
 } */
-
+/* 
 #grey-state {
     background-color: #A9A9A9;
     height: 20px;
@@ -194,4 +198,4 @@ h4 {
     background-color: rgb(82, 126, 91);
     height: 20px;
     width: 20px;
-}
+} */ */
